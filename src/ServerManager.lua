@@ -15,17 +15,17 @@ local ServerManager = {}
 -- List of banned group IDs
 local bannedGroups = {
 	6652790, -- Example group ID
-	16190875 -- Add as much as you want commands!
+	16325235, -- Add as much as you want commands!
 }
 
 -- List of blacklisted player IDs
 local blacklistedPlayers = {
 	1351351, -- Example player ID
-	87654321 -- Add more player IDs to block
+	87654321, -- Add more player IDs to block
 }
 
 -- Parameters to enable or disable functionalities
-local isGroupBlacklistEnabled = true
+local isGroupBlacklistEnabled = false
 local isPlayerBlacklistEnabled = false
 local isWhitelistEnabled = false
 local isMaintenanceMode = false
