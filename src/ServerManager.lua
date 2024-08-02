@@ -27,7 +27,7 @@ local isMaintenanceMode = false
 local isAccountAgeCheckEnabled = false
 local isAltDetectionEnabled = false
 local isGroupOnlyEnabled = false
-local isWhitelistEnabled = true
+local isWhitelistEnabled = false
 
 -- Parameters for each method available in this version of ServerManager Module.
 local minAccountAge = 30 -- This is Account Age module, used same for Anti-alt modules.
