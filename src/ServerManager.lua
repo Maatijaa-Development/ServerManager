@@ -19,7 +19,7 @@ local bypassList = {
 
 -- You can enable/disable modules here.
 local isMaintenanceMode = false
-local isAccountAgeCheckEnabled = true
+local isAccountAgeCheckEnabled = false
 local isAltDetectionEnabled = false
 local isGroupOnlyEnabled = false
 
