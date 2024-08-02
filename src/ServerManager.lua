@@ -27,13 +27,14 @@ local isMaintenanceMode = false
 local isAccountAgeCheckEnabled = false
 local isAltDetectionEnabled = false
 local isGroupOnlyEnabled = false
+local isWhitelistEnabled = false
 
 -- Parameters for each method available in this version of ServerManager Module.
 local minAccountAge = 30 -- This is Account Age module, used same for Anti-alt modules.
 local altDetectionThreshold = 10 -- This is AltDetection module, currently in beta. The number 10 means how much player has played games before joining this game.
 local requiredGroupId = 123456 -- You can add your groupID here.
 
--- Bypass list functions
+
 function ServerManager:AddBypassUsername(username)
 	table.insert(bypassList.Usernames, username)
 end
@@ -79,6 +80,7 @@ function ServerManager:CanBypass(player)
 	return false
 end
 
+-- Whitelist functions
 function ServerManager:AddWhitelistUsername(username)
 	table.insert(whitelist.Usernames, username)
 end
@@ -124,6 +126,10 @@ function ServerManager:IsWhitelisted(player)
 	return false
 end
 
+function ServerManager:SetWhitelist(state)
+	isWhitelistEnabled = state
+end
+
 function ServerManager:SetMaintenanceMode(state)
 	isMaintenanceMode = state
 end
@@ -150,34 +156,37 @@ function ServerManager:SetGroupOnly(state, groupId)
 end
 
 function ServerManager:PlayerAdded(player)
-	if not ServerManager:IsWhitelisted(player) then
-		if isMaintenanceMode and not ServerManager:CanBypass(player) then
-			player:Kick("SM - This server is under development.")
+	if isWhitelistEnabled and not ServerManager:IsWhitelisted(player) then
+		player:Kick("SM - You are not whitelisted.")
+		return
+	end
+
+	if isMaintenanceMode and not ServerManager:CanBypass(player) then
+		player:Kick("SM - This server is under development.")
+		return
+	end
+
+	if isAccountAgeCheckEnabled then
+		local accountAge = player.AccountAge
+		if accountAge < minAccountAge and not ServerManager:CanBypass(player) then
+			player:Kick("SM - Your account must be at least " .. minAccountAge .. " days old to play.")
 			return
 		end
+	end
 
-		if isAccountAgeCheckEnabled then
-			local accountAge = player.AccountAge
-			if accountAge < minAccountAge and not ServerManager:CanBypass(player) then
-				player:Kick("SM - Your account must be at least " .. minAccountAge .. " days old to play.")
-				return
-			end
+	if isAltDetectionEnabled then
+		local gameCount = #player:GetPlayerGames()
+		if gameCount < altDetectionThreshold and not ServerManager:CanBypass(player) then
+			player:Kick("SM - Alt account detected. Access denied.")
+			return
 		end
+	end
 
-		if isAltDetectionEnabled then
-			local gameCount = #player:GetPlayerGames()
-			if gameCount < altDetectionThreshold and not ServerManager:CanBypass(player) then
-				player:Kick("SM - Alt account detected. Access denied.")
-				return
-			end
-		end
-
-		if isGroupOnlyEnabled then
-			local inGroup = player:IsInGroup(requiredGroupId)
-			if not inGroup and not ServerManager:CanBypass(player) then
-				player:Kick("SM - You must join MRFS Group in order to proceed...")
-				return
-			end
+	if isGroupOnlyEnabled then
+		local inGroup = player:IsInGroup(requiredGroupId)
+		if not inGroup and not ServerManager:CanBypass(player) then
+			player:Kick("SM - You must join Group in order to proceed...")
+			return
 		end
 	end
 end
