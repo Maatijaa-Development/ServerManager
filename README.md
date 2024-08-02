@@ -28,7 +28,9 @@ If you can keep credits about this module it would make me happy, because i work
 
 ![](https://img.shields.io/github/license/Maatijaa/ServerManager)
 
-**Every day i will try to bring in more features as possible, to make sure to bring most advenced experience to our users.*
+**If you have any questions or would like to suggest something to this project, you can join our [Discord](https://discord.gg/Dn4RnDu2wS) !
+
+**Every day i will try to bring in more features as possible, to make sure to bring most advenced experience to our users.**
 
 *Thank you for Reading this Information..*
 
