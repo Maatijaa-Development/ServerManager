@@ -8,10 +8,17 @@ ServerManager is combination of diffrent modules combined into one script, and a
 
 # Installation Tutorial
 
- Simply download latest version of realese.
+ We highly recommend to only download from this source cause this is original one.
 
-*Step 1: Create folder in ServerScriptService name it SM_Module or something like that.*
-*Step 2: Import your downloaded file .rbmx into that folder*
+**And always latest version is always suggested!**
+
+*You can find all realeses here:* [ServerManager Realeses](https://github.com/Maatijaa/ServerManager/releases/)
+
+*Step 1: Import your downloaded file .rbxmx into roblox studio*
+
+*Step 2: Setup the module how ever you want it. And boom!*
+
+*Note: Do not edit any part of the scripts if you dont know what are you doing cause it may break a whole module.*
 
 
 It should look like this:
@@ -28,7 +35,7 @@ If you can keep credits about this module it would make me happy, because i work
 
 ![](https://img.shields.io/github/license/Maatijaa/ServerManager)
 
-**If you have any questions or would like to suggest something to this project, you can join our** [Discord](https://discord.gg/Dn4RnDu2wS) !
+**If you have any questions or would like to suggest something to this project, you can join our** [Discord](https://discord.gg/Dn4RnDu2wS)
 
 **Every day i will try to bring in more features as possible, to make sure to bring most advenced experience to our users.**
 
