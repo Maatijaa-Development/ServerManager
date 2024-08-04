@@ -12,6 +12,8 @@ ServerManager is combination of diffrent modules combined into one script, and a
 
 **And always latest version is always suggested!**
 
+![img.png](images/img.png)
+
 *You can find all realeses here:* [ServerManager Realeses](https://github.com/Maatijaa/ServerManager/releases/)
 
 *Step 1: Import your downloaded file .rbxmx into roblox studio*
