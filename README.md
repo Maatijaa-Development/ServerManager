@@ -43,3 +43,4 @@ If you can keep credits about this module it would make me happy, because i work
 
 *Thank you for Reading this Information..*
 
+*This project has been ended. And will be probably not maintained anymore, feel free to fork it just please give Credits to the original creator Maatijaa.*
