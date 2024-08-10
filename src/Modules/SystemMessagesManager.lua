@@ -23,21 +23,39 @@ local function checkServerManager()
 end
 
 local messages = {
-	"Just put fries in the bag sir.", -- This is example message of course.
+	"Just put fries in the bag sir.", -- This is an example message.
 
-  -- You can add as much as you want messages of course.
+  -- You can add as many messages as you want.
 }
 
 local interval = 1 -- This is interval based on seconds
+local messagesEnabled = true -- This controls whether messages are sent or not
 
 local function sendMessages()
-	for _, msg in ipairs(messages) do
-		game.StarterGui:SetCore("ChatMakeSystemMessage", {
-			Text = "[System:] " .. msg; -- This is Prefix
-			Color = Color3.new(0.741176, 0, 0);
-		})
-		wait(interval)
+	while messagesEnabled do
+		for _, msg in ipairs(messages) do
+			if not messagesEnabled then
+				break
+			end
+			game.StarterGui:SetCore("ChatMakeSystemMessage", {
+				Text = "[System:] " .. msg; -- This is the Prefix
+				Color = Color3.new(0.741176, 0, 0);
+			})
+			wait(interval)
+		end
 	end
 end
 
-sendMessages()
+local function toggleMessages(state)
+	messagesEnabled = state
+	if messagesEnabled then
+		print("Messages are now enabled.")
+		sendMessages()
+	else
+		print("Messages are now disabled.")
+	end
+end
+
+-- to start sending messages do true to stop do false simple as fu-
+toggleMessages(false) 
+
