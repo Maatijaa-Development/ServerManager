@@ -1,4 +1,4 @@
--- ServerManager 1.0.2
+-- ServerManager 1.0.3
 --
 -- This Script has been developed by Maatijaa. Also known as Paradoxer.
 --
